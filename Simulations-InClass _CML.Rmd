@@ -82,7 +82,7 @@ summary(bootstrap[500,])
 var(bootstrap[500,])
 ```
 
-
+pppppp
 Note: you *must* stop playing if your player has gone bust. How will you handle this in the `for` loop?
 
 2. Repeat the previous problem with betting on black in American roulette, where the probability of winning on any spin is 18/38 for an even payout.
