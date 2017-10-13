@@ -208,7 +208,7 @@ Make a function called `boot_ci` which calculates the 95% confidence interval in
 boot_ci<-function(df){
 m<-rep(NA,1000)
 for (n in 1:1000) {
- m[n]<-mean(sample(df,length(df),replace = TRUE))
+ m[n]<-var(sample(df,length(df),replace = TRUE))
 }
 qt<-quantile(m,probs = c(0.025,0.975))
 return(qt)
@@ -218,6 +218,6 @@ boot_ci(df)
 ```
 5. For problems 3b and 3c, you calculated a mean value. Because you saved these final results in a vector, use the bootstrap to estimate the variance of the return in each case for your final answer. Once you have these results, which game has the smaller variance in returns?
 ```{r}
-
-
+boot_ci(replicate(100,markov_game(100,0.50,100000)))
+boot_ci(replicate(100,markov_game(100,0.49,100000)))
 ```
