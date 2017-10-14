@@ -35,7 +35,7 @@ With this project we will simulate a famous probability problem. This will not r
 #fixed bankroll and bet with changing probability and number of iterations/hands. 
 ruin<-function(prob, iterat){
   output<-matrix(NA ,nrow = iterat, ncol = 2,byrow = T) #code from Ze (will save the result in this matrix)
-  colnames(output)<-c("bankroll","hands") # code from ze
+  colnames(output)<-c("bankroll","hands") 
 for (i in 1:iterat){ #loop for the replication/repeatation
   bet<-100
   bankroll<-1000
@@ -130,7 +130,7 @@ var(ar_500[,"bankroll"])
 ```{r}
 #fixed bankroll and bet with changing probability and number of iterations/hands.return the bankroll
 #calculate the mean bankroll and show the probability of mean bankroll less than the initial
-m_c<-function (bet, p0, iterat) {
+m_c<-function (bet, p0, iterat) { # code modified from Ze
   p1=p0
   hand = 1
   bankroll = 0
@@ -139,13 +139,13 @@ while (hand <= iterat){
       bankroll = bankroll + bet
       p1=p1 + 0.01 
       if (p1>1) {p1=1}
-      #if(p1<1)  {p1=p0+0.01}  else{p1=1}
-      hand = hand + 1
+       hand = hand + 1
     } else { 
     bankroll = bankroll - bet 
       p1 = p0
       hand = hand +1}
-  } 
+} 
+  #print(p1) # debugging print to see that p1 is changing
   return(bankroll)
 }
 
